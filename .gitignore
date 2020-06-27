@@ -140,4 +140,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+>>>>>>> numpy_integration
