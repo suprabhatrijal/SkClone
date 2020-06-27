@@ -8,6 +8,7 @@ y = [points[1] for points in train]
 
 
 test_model = LinearRegressor()
+print(test_model)
 test_model.fit(x,y)
-
+print(test_model.predict(prediction_x))
 
