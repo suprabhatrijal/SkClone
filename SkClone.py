@@ -13,14 +13,9 @@ class LinearRegressor:
     def rss_derivative(self, x, y):
         slope = self.slope
         intercept = self.intercept
-        d_slope = 0
-        d_intercept = 0
-        d_slope_array = 2 * -x * (y - (slope * x + intercept))
-        d_intercept_array = -2 * (y - (slope * x + intercept))
-        for i in range(0, len(d_slope_array)):
-            d_slope += d_slope_array[i][0]
-            d_intercept += d_intercept_array[i][0]
-        return[d_slope, d_intercept]
+        d_slope= np.sum(2 * -x * (y - (slope * x + intercept)))
+        d_intercept = np.sum(-2 * (y - (slope * x + intercept)))
+        return [d_slope, d_intercept]
 
 
 
@@ -48,9 +43,6 @@ class Metric:
         prediction = np.vstack(prediction)
         y = np.vstack(y)
         rss = np.sum((y - prediction) ** 2)
-
-
-
         return rss
 
 
