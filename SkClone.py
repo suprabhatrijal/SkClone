@@ -9,17 +9,23 @@ class LinearRegressor:
         self.intercept = intercept
         self.learning_rate = learning_rate
 
-    #gives the derivative of the loss function
+    ''' 
+    Returns the derivative of the loss function w.r.t slope and intercept in a list where the first item is the 
+    derivative w.r.t. slope and the second item is the derivative w.r.t. intercept
+    '''
     def rss_derivative(self, x, y):
         slope = self.slope
         intercept = self.intercept
+        # d_slope is the the value of derivative of the loss function w.r.t. slope
         d_slope= np.sum(2 * -x * (y - (slope * x + intercept)))
+        # d_intercept is the the value of derivative of the loss function w.r.t. intercept
         d_intercept = np.sum(-2 * (y - (slope * x + intercept)))
         return [d_slope, d_intercept]
 
-
-
-    #fits the model according to the data
+    '''
+    Configures the value of slope and intercept according to the line of best fit using the gradient descent 
+    algorithm. Works on numpy arrays which are vertically stacked.
+    '''
     def fit(self, fit_x, fit_y):
         fit_x, fit_y = np.vstack(fit_x), np.vstack(fit_y)
         derivatives = self.rss_derivative(fit_x, fit_y)
@@ -30,14 +36,17 @@ class LinearRegressor:
             self.intercept -= step_intercept
             derivatives = self.rss_derivative(fit_x, fit_y)
 
-    #gives the prediction
+    ''' 
+    Return the predicted outcome for any dataset according to the configuration of the model as a numpy array which is
+    vertically stacked
+    '''
     def predict(self, x):
         pred_x = np.vstack(x)
         pred_y = self.slope*pred_x + self.intercept
         return pred_y
 
 
-#Class with functions to check the accuracy of the model
+# Class with functions to check the accuracy of the model
 class Metric:
     def rss(self, y, prediction):
         prediction = np.vstack(prediction)
