@@ -1,13 +1,15 @@
 import numpy as np
 
+
 class LinearRegressor:
     def __repr__(self):
         return "Learning rate: {0}".format(self.learning_rate)
 
-    def __init__(self, slope=1, intercept=2, learning_rate=0.0001):
+    def __init__(self, slope = 1, intercept = 2, learning_rate = 0.1):
         self.slope = slope
         self.intercept = intercept
         self.learning_rate = learning_rate
+
 
     ''' 
     Returns the derivative of the loss function w.r.t slope and intercept in a list where the first item is the 
@@ -17,10 +19,11 @@ class LinearRegressor:
         slope = self.slope
         intercept = self.intercept
         # d_slope is the the value of derivative of the loss function w.r.t. slope
-        d_slope= np.sum(2 * -x * (y - (slope * x + intercept)))
+        d_slope = np.sum(2 * -x * (y - (slope * x + intercept)))
         # d_intercept is the the value of derivative of the loss function w.r.t. intercept
         d_intercept = np.sum(-2 * (y - (slope * x + intercept)))
         return [d_slope, d_intercept]
+
 
     '''
     Configures the value of slope and intercept according to the line of best fit using the gradient descent 
@@ -34,7 +37,11 @@ class LinearRegressor:
             step_intercept = derivatives[1] * self.learning_rate
             self.slope -= step_slope
             self.intercept -= step_intercept
+            temp = derivatives
             derivatives = self.rss_derivative(fit_x, fit_y)
+            if abs(derivatives[0]) > abs(temp[0]) and abs(derivatives[1]) > abs(temp[1]):
+                self.learning_rate /= 5
+
 
     ''' 
     Return the predicted outcome for any dataset according to the configuration of the model as a numpy array which is
