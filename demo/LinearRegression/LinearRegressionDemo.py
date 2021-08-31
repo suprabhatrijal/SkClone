@@ -21,7 +21,6 @@ sklearn_predictions  = sklearn_model.predict(X_test)
 
 
 print("skclone MSE: ", mean_squared_error(y_test, skclone_predictions))
-
 print("sklearn MSE: ", mean_squared_error(y_test, sklearn_predictions))
 
 
