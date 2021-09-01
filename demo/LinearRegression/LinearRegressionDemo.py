@@ -3,7 +3,7 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 
-X, y = datasets.make_regression(n_samples=1500, n_features=10, noise=20, random_state=4)
+X, y = datasets.make_regression(n_samples=200, n_features=10, noise=20, random_state=4)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1234)
 
 
