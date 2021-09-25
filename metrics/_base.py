@@ -1,6 +1,8 @@
 import numpy as np
 
 
+
+
 def mean_squared_error( y, prediction):
     if len(y.shape) < 2:
         y = y.reshape(y.shape[0], 1)
