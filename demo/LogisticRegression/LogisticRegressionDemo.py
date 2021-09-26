@@ -19,8 +19,5 @@ sklearn_model.fit(X_train, y_train)
 skclone_predictions = skclone_model.predict(X_test)
 sklearn_predictions = sklearn_model.predict(X_test)
 
-print(accuracy_score(y_test, skclone_predictions))
-print(accuracy_score(y_test, sklearn_predictions))
-
-
-
+print(f"accuracy score of skclone model: {accuracy_score(y_test, skclone_predictions)*100}%", )
+print(f"accuracy score of sklearn model: {accuracy_score(y_test, sklearn_predictions)*100}%", )
