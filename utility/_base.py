@@ -18,3 +18,4 @@ def compute_distances(train_data, prediction_data):
         distance = np.sqrt(distance)
         distances[i:] = distance
     return distances
+
