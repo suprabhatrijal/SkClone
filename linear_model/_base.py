@@ -1,4 +1,5 @@
 import numpy as np
+from utility import validate
 
 
 class BaseRegressor:
@@ -14,19 +15,13 @@ class BaseRegressor:
     def _predict(self, x, slope, intercept):
         return NotImplementedError()
 
-    def _validate(self, iterable):
-        iterable = np.array(iterable)
-        if len(iterable.shape) < 2:
-            iterable = iterable.reshape(iterable.shape[0], 1)
-        return iterable
-
     def predict(self, x):
-        x = self._validate(x)
+        x = validate(x)
         return self._predict(x, self.slope, self.intercept)
 
     def fit(self, fit_x, fit_y):
-        x = self._validate(fit_x)
-        y = self._validate(fit_y)
+        x = validate(fit_x)
+        y = validate(fit_y)
 
         n_samples, n_features = x.shape
 
