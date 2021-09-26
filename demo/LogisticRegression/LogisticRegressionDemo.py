@@ -2,6 +2,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
+
 from linear_model import LogisticRegressor
 from metrics import accuracy_score
 
