@@ -1,2 +1,3 @@
 # SkClone
-A project to clone the Sci-Kit learn library for educational purposes
+## A project to build Machine Learning models from scratch in python
+## Author: Suprabhat Rijal
