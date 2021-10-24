@@ -1,6 +1,6 @@
 import numpy as np
 
-
+# function to validate the data
 def validate(iterable):
     iterable = np.array(iterable)
     if len(iterable.shape) < 2:
