@@ -17,20 +17,17 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_
 # formatting the data into the required format
 X_train = validate(X_train)
 
-# initializing the models
 model = KMeansCluster(n_clusters=3)
 model1 = KMeans(n_clusters=3)
 
-# fitting the models to the data
 model.fit(X_train)
 model1.fit(X_train)
 
-# retrieving the predictions made by the model
 predictions = model.predict(X_test)
 predictions1 = model1.predict(X_test)
 
 
-fig, (ax1, ax2) = plt.subplots(1, 2, sharey= True)
+fig, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
 
 
 ax1.scatter(X_test[:, 0], X_test[:, 1], c=predictions, s=50, cmap="viridis")
