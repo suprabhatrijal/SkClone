@@ -2,6 +2,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
 
+
 from neighbors import KNNClassifier
 from metrics import accuracy_score
 
@@ -20,3 +21,4 @@ sklearn_predictions = sklearn_model.predict(X_test)
 
 print(f"accuracy score of skclone model: {accuracy_score(y_test, skclone_predictions)*100}%", )
 print(f"accuracy score of sklearn model: {accuracy_score(y_test, sklearn_predictions)*100}%", )
+print("adsf asdfasd".split())

@@ -1,9 +1,7 @@
 import numpy as np
 
 
-
-
-def mean_squared_error( y, prediction):
+def mean_squared_error(y, prediction):
     if len(y.shape) < 2:
         y = y.reshape(y.shape[0], 1)
     if len(prediction.shape) < 2:
@@ -12,5 +10,5 @@ def mean_squared_error( y, prediction):
 
 
 def accuracy_score(y, prediction):
-    accuracy = np.sum(y == prediction)/ len(y)
+    accuracy = np.sum(y == prediction)/len(y)
     return accuracy

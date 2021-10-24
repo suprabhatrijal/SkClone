@@ -17,11 +17,9 @@ class KNNBase:
         x = validate(x)
         predictions = np.zeros((x.shape[0]))
         array_of_distances = compute_distances(self.X, x)
-        for i in range(len(array_of_distances)):
-            distances = array_of_distances[i]
+        for i, distances in enumerate(array_of_distances):
             values = np.take(self.y, np.argpartition(distances, self.k)[:self.k])
             predictions[i] = self._getpredictions(values)
-
         return predictions
 
     def _getpredictions(self, values):
