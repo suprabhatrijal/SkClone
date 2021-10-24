@@ -25,8 +25,8 @@ class KNNBase:
     def _getpredictions(self, values):
         raise NotImplementedError()
 
-class KNNClassifier(KNNBase):
 
+class KNNClassifier(KNNBase):
 
     def __init__(self, k=3):
         super().__init__(k)
