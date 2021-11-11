@@ -3,8 +3,8 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 
-from linear_model import LogisticRegressor
-from metrics import accuracy_score
+from skclone.linear_model import LogisticRegressor
+from skclone.metrics import accuracy_score
 
 Dataset = datasets.load_breast_cancer()
 X, y = Dataset.data, Dataset.target

@@ -1,5 +1,5 @@
 import numpy as np
-from utility import validate
+from skclone.utility import validate
 
 
 class BaseRegressor:

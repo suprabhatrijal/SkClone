@@ -1,21 +1,14 @@
-# import all the libraries
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_iris
-from utility import validate
-from cluster import KMeansCluster
+from skclone.cluster import KMeansCluster
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
 
-# load the data
 iris = load_iris()
-# splitting the data into features and target
-X, y = iris.data, iris.target
-# splitting the data into training and testing sets
+X, y , feature= iris.data, iris.target, iris.feature_names
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.5, random_state=1234)
 
-# formatting the data into the required format
-X_train = validate(X_train)
 
 model = KMeansCluster(n_clusters=3)
 model1 = KMeans(n_clusters=3)
@@ -27,15 +20,21 @@ predictions = model.predict(X_test)
 predictions1 = model1.predict(X_test)
 
 
-fig, (ax1, ax2) = plt.subplots(1, 2, sharey=True)
+fig, axs = plt.subplots(1, 2, figsize=(10,5), constrained_layout=True, sharey=True)
 
 
-ax1.scatter(X_test[:, 0], X_test[:, 1], c=predictions, s=50, cmap="viridis")
-ax1.set_title('Skclone Prediction')
+axs[0].scatter(X_test[:, 0], X_test[:, 1], c=predictions, s=50, cmap="viridis")
+axs[0].set_title('Skclone Prediction')
 
 
-ax2.scatter(X_test[:, 0], X_test[:, 1], c=y_test, s=50, cmap="viridis")
-ax2.set_title('Actual')
+axs[1].scatter(X_test[:, 0], X_test[:, 1], c=y_test, s=50, cmap="viridis")
+axs[1].set_title('Actual')
 
+for ax in axs.flat:
+    ax.set(xlabel=feature[0], ylabel=feature[1])
+
+
+fig.suptitle("KNNClassification Demo")
+plt.savefig("KMeans.png")
 plt.show()
 

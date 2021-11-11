@@ -1,5 +1,6 @@
 import numpy as np
 
+
 # function to validate the data
 def validate(iterable):
     iterable = np.array(iterable)

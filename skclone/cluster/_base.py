@@ -1,12 +1,11 @@
 """
-TODO:
-1) Write better comments
-2) Name the counter variables better
-3) Implement the KMeans++ algorithm
+TODO: 1) Write better comments
+TODO: 2) Name the counter variables better
+TODO: 3) Implement the KMeans++ algorithm
 """
 
 import numpy as np
-from utility import compute_distances, validate
+from skclone.utility import compute_distances, validate
 
 
 class KMeansCluster:
