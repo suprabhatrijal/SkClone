@@ -34,7 +34,7 @@ for ax in axs.flat:
     ax.set(xlabel=feature[0], ylabel=feature[1])
 
 
-fig.suptitle("KNNClassification Demo")
+fig.suptitle("KMeansClassification Demo")
 plt.savefig("KMeans.png")
 plt.show()
 
